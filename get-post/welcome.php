@@ -1,12 +1,15 @@
 <?php
 session_start();
 require_once "./db/db.php";
-if (
-    isset($_SESSION['user']) &&
-    !empty($_SESSION['user'])
-){
+
+
+if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
     echo "WELCOME: {$_SESSION['user']['name']}";
-} 
+
+} else {
+    echo "No has iniciado sesión.";
+    exit;
+}
 ?>
 
 <form action="cerrar_sesion.php" method="post">
@@ -19,8 +22,19 @@ if (
     <button type="submit">Crear post</button>
 </form>
 
+<?php
+if (isset($posts)) {
+    foreach ($posts as $post) {
+        if (
+            isset($post['titulo']) && isset($post['descripcion']) && 
+            isset($post['id_usu']) && $post['id_usu'] == $_SESSION['user']['id']) {
+            echo "Titulo: {$post['titulo']}<br>";
+            echo "Descripción: {$post['descripcion']}<br>";
+            echo "<hr>";
+        }
+    }
+}
 
-<?php 
 
 
 

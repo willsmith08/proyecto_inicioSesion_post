@@ -14,12 +14,9 @@ $users = [
     ]
 ];
 
-
-if (
-    isset($_COOKIE['posts'])
-    ){
-        $post = json_decode($_COOKIE['posts'], true);
+if (isset($_COOKIE['posts'])){
+    $posts = json_decode($_COOKIE['posts'],true);
 }
 else{
-    $post = [];
+    $posts = [];
 }
