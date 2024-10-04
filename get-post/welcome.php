@@ -15,7 +15,7 @@ if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
 <form action="cerrar_sesion.php" method="post">
     <input type="submit" value="Cerrar sesión">
 </form>
-<form action="bloquear.php" method="post">
+<form action="bloqueo_sesion.php" method="post">
     <input type="submit" value="Bloquear sesión">
 </form>
 <form action="crear_post.php" method="post">

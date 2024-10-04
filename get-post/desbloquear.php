@@ -1,16 +1,28 @@
-<?php
-session_start();
+<?php 
 require_once "./db/db.php";
-if (
-    isset($_POST['blo_pass'])  && !empty($_POST['blo_pass'])
-    ){
-        if ($_POST['blo_pass'] == $_SESSION['user']['password']){
-            header('location: welcome.php');
+
+if (isset($_POST["blo_pass"]) && !empty($_POST["blo_pass"]))
+{
+    foreach ($users as $user){
+        $use_blo = $_COOKIE['user_bloqueado'];
+        if ($user['user'] ==  $use_blo &&
+        $user['password'] == $_POST["blo_pass"]
+            ) {
+                session_start();
+                $_SESSION["user"] = $user;
+                header("location: welcome.php");
         }
-        else{
-            echo'Contraseña incorrecta';
+        else {
+            echo "CONTRASEÑA INCORRECTA";
+            break;
         }
+    }
 }
 else{
-    echo 'Campo vacio';
+    echo "CAMPO VACIO";
 }
+
+?>
+<form action="contraseña_desblo.php">
+    <button type="submit">Atras</button>
+</form>

@@ -2,13 +2,13 @@
 $users = [
     [
         "id"=> 1,
-        'name' => 'Will Smith',
+        'name' => 'Will',
         'user' => 'admin',
         'password' => 'admin'
     ],
     [
         'id'=> 2,
-        'name' => 'Victor Eduardo',
+        'name' => 'Smith',
         'user' => 'admin2',
         'password' => 'admin2'
     ]
