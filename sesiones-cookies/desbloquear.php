@@ -10,6 +10,7 @@ if (isset($_POST["blo_pass"]) && !empty($_POST["blo_pass"]))
             ) {
                 session_start();
                 $_SESSION["user"] = $user;
+                setcookie('user_bloqueado',$user_bloqueado, time() - 3600,'/');
                 header("location: welcome.php");
         }
         else {
